@@ -1,7 +1,6 @@
-
 const meshmess = {
     new: function() {
-        let registry = [0, 'bug', 'unk']
+        let registry = []
         let curry = function(f, ...args) {
             return function(...moreargs) {
                 return f(...args, ...moreargs)
