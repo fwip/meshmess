@@ -1,13 +1,32 @@
 
 const meshmess = {
     new: function() {
-        let state = {}
+        let registry = [0, 'bug', 'unk']
+        let curry = function(f, ...args) {
+            return function(...moreargs) {
+                return f(...args, ...moreargs)
+            }
+        }
         let mm = {
-            register: function(name, data) {
-                state[name] = data
+            register: function(data) {
+                let name = registry.length 
+                registry[name] = data
+                return name
             },
-            compute: function(f, data) {
-                return state[f](state[data])
+            apply: function(f, ...moreargs) {
+                let name = registry.length 
+                registry[name] = () => {
+                    return registry[f](
+                        ...(moreargs.map(mm.view))
+                    )}
+                return name
+            },
+            view: function(x) {
+                let data = registry[x]
+                if (typeof data === 'function') {
+                    return data()
+                }
+                return data
             },
         }
         return mm

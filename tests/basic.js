@@ -8,9 +8,10 @@ test('no-op', function (t) {
 test('can compute', function(t) {
     t.plan(1)
     let mm = meshmess.new()
-    mm.register('data', 1)
-    mm.register('f', (x) => x+1)
-    let x = mm.compute('f', 'data')
+    let data = mm.register(1)
+    let f = mm.register((x) => x+1)
+    let computed = mm.apply(f, data)
+    let x = mm.view(computed)
     t.equal(x, 2, "1+1 = 2")
     t.end()
 })
