@@ -1,0 +1,22 @@
+{
+  "name": "meshmess",
+  "version": "0.0.1",
+  "description": "meshmess aspires to be a computational mesh",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape tests/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fwip/meshmess.git"
+  },
+  "author": "fwip",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fwip/meshmess/issues"
+  },
+  "homepage": "https://github.com/fwip/meshmess#readme",
+  "devDependencies": {
+    "tape": "^4.11.0"
+  }
+}
